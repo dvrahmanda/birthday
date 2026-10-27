@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Risqi's Birthday Scrapbook</title>
+  <meta name="theme-color" content="#d3b9ae" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Caveat:wght@400;600;700&family=Playfair+Display:wght@500;700&display=swap');
+    :root{
+      --paper:#f7efe6;
+      --paper-2:#fff8f0;
+      --ink:#5f463f;
+      --soft:#8b6f66;
+      --pink:#e9b7c6;
+      --rose:#d99aae;
+      --brown:#b88d76;
+      --shadow:0 18px 45px rgba(98,69,56,.18);
+      --line:rgba(122,93,80,.18);
+      --accent:#c97e95;
+      --accent-2:#d8b48c;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:'DM Sans',sans-serif;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(255,255,255,.5), transparent 20%),
+        radial-gradient(circle at 90% 6%, rgba(236,198,210,.45), transparent 18%),
+        linear-gradient(180deg, #f4e8de 0%, #f7efe6 100%);
+      overflow-x:hidden;
+    }
+    body:before{
+      content:'';
+      position:fixed; inset:0; pointer-events:none; opacity:.33; z-index:-1;
+      background-image:
+        linear-gradient(transparent 31px, rgba(150,118,104,.06) 32px),
+        linear-gradient(90deg, transparent 31px, rgba(150,118,104,.04) 32px);
+      background-size:32px 32px;
+      mix-blend-mode:multiply;
+    }
+    img{max-width:100%;display:block}
+    button,input,textarea{font:inherit}
+    button{cursor:pointer}
+    .wrap{width:min(1120px,92%);margin:auto}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 0 12px}
+    .brand{font:700 36px 'Caveat',cursive;color:#8d5e67}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .chip,.icon-float{border:1.5px solid rgba(138,107,96,.18);background:rgba(255,250,244,.88);color:var(--ink);border-radius:999px;padding:11px 16px;box-shadow:0 8px 20px rgba(119,91,79,.08);transition:.2s ease}
+    .chip:hover,.icon-float:hover{transform:translateY(-2px);background:#fff}
+    .hero{padding:28px 0 38px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .paper{position:relative;background:linear-gradient(180deg, rgba(255,250,245,.96), rgba(248,239,230,.97));border:1px solid rgba(147,117,104,.12);border-radius:28px;box-shadow:var(--shadow);padding:28px;overflow:hidden}
+    .paper:before,.paper:after{content:'';position:absolute;width:90px;height:26px;border-radius:4px;background:rgba(245,221,176,.66);box-shadow:0 3px 8px rgba(0,0,0,.08);top:16px;opacity:.92}
+    .paper:before{left:22px;transform:rotate(-9deg)}
+    .paper:after{right:22px;transform:rotate(11deg)}
+    .eyebrow{letter-spacing:3px;text-transform:uppercase;font-size:12px;color:#9c7d73}
+    h1{font:700 clamp(44px,7vw,86px) 'Playfair Display',serif;line-height:1.06;margin:12px 0 16px;color:#5f433d}
+    h1 em{display:block;font:700 clamp(30px,5.6vw,58px) 'Caveat',cursive;color:#b26f84;font-style:normal;margin-top:6px}
+    .lead{line-height:1.9;color:#6f5650;max-width:560px}
+    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .primary{border:none;border-radius:999px;padding:14px 22px;background:linear-gradient(135deg, #d7a0b0, #ebbfc3);color:#fff;font-weight:700;box-shadow:0 14px 25px rgba(193,119,143,.25)}
+    .secondary{background:#fff6ef;color:#7b5e58}
+    .photo-board{display:grid;place-items:center;min-height:100%;position:relative;padding:20px;background:radial-gradient(circle at 20% 20%, rgba(255,255,255,.5), transparent 26%), linear-gradient(180deg, #efdfd4, #f6ede7)}
+    .photo-board:before,.photo-board:after{content:'';position:absolute;border:2px dashed rgba(164,124,112,.2);border-radius:24px;inset:18px;pointer-events:none}
+    .photo-board:after{inset:34px;border-radius:18px}
+    .polaroid{width:min(360px,82%);background:#fff;border-radius:6px;padding:14px 14px 26px;transform:rotate(-4deg);box-shadow:0 22px 40px rgba(93,70,59,.2);position:relative}
+    .polaroid:before,.polaroid:after{content:'';position:absolute;width:86px;height:22px;background:rgba(246,220,172,.78);top:-8px;border-radius:3px;box-shadow:0 3px 8px rgba(0,0,0,.08)}
+    .polaroid:before{left:20px;transform:rotate(-7deg)}
+    .polaroid:after{right:18px;transform:rotate(8deg)}
+    .polaroid .frame{aspect-ratio:4/5;background:#f1e6df;overflow:hidden;border-radius:2px}
+    .polaroid .frame img{width:100%;height:100%;object-fit:cover}
+    .polaroid .caption{margin-top:16px;text-align:center;font:700 28px 'Caveat',cursive;color:#8f6570}
+    .sticker{position:absolute;display:grid;place-items:center;background:#ffe7c8;color:#a26a57;box-shadow:0 8px 15px rgba(102,76,66,.11)}
+    .heart{width:58px;height:58px;border-radius:50%;top:38px;right:24px;font-size:28px;background:#f9d8df}
+    .star{width:54px;height:54px;border-radius:18px;bottom:34px;left:30px;font-size:24px;background:#fff0cf;transform:rotate(-11deg)}
+    .section{padding:42px 0}
+    .section-title{text-align:center;margin-bottom:22px}
+    .section-title .small{font:700 12px 'DM Sans',sans-serif;letter-spacing:3px;text-transform:uppercase;color:#a38176}
+    .section-title h2{font:700 clamp(34px,4.8vw,56px) 'Playfair Display',serif;margin:12px 0 10px;color:#5e443e}
+    .section-title p{max-width:650px;margin:auto;line-height:1.85;color:#77605a}
+    .countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:760px;margin:28px auto 0}
+    .timebox{padding:22px 8px;text-align:center;background:#fffaf6;border:1px dashed rgba(149,120,108,.2);border-radius:20px}
+    .timebox strong{display:block;font:700 clamp(28px,4.5vw,52px) 'Playfair Display',serif;color:#9f6475}
+    .timebox span{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:#a18279}
+    .tiny-note{text-align:center;margin-top:16px;color:#856963;font-size:14px}
+    .language-switch{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:9px;margin:0 auto 22px}.language-switch span{font-size:13px;color:#8e6b63;margin-right:6px}.lang-btn{border:1px solid #e6c4cc;background:#fffaf6;border-radius:99px;padding:9px 15px;color:#875e6a;cursor:pointer;font-weight:700}.lang-btn.active{background:#b9778d;color:white;border-color:#b9778d}.lang-btn:focus-visible{outline:3px solid #b9778d;outline-offset:2px}
+    .letters-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}
+    .letter-card{padding:20px;background:#fffaf6;border-radius:22px;border:1px solid rgba(147,118,108,.14);box-shadow:0 12px 28px rgba(119,90,79,.08);position:relative}
+    .letter-card:before{content:'';position:absolute;left:18px;right:18px;top:18px;bottom:18px;border:1px dashed rgba(164,131,119,.16);border-radius:16px;pointer-events:none}
+    .letter-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;padding-right:8px}
+    .letter-title h3{margin:0;font:700 22px 'Caveat',cursive;color:#9b6373}
+    .letter-btn{border:none;background:#efd0d9;color:#704950;border-radius:999px;padding:10px 16px;font-weight:700}
+    .letter-body{display:none;white-space:pre-wrap;line-height:1.95;color:#654c46;background:#fff;padding:18px;border-radius:16px;margin-top:12px;max-height:370px;overflow:auto}
+    .letter-body.open{display:block}
+    .memory-wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;align-items:start}
+    .memory-note{background:#fffaf6;border-radius:22px;padding:26px;border:1px solid rgba(146,117,105,.14);box-shadow:0 14px 32px rgba(116,91,82,.08)}
+    .memory-note p{line-height:1.95;color:#6d5550;margin:0}
+    .memory-mini{display:grid;place-items:center;min-height:100%}
+    .memory-mini .polaroid{width:min(320px,88%);transform:rotate(3.5deg)}
+    .cake-area{display:grid;place-items:center;padding-top:8px}
+    .cake{position:relative;width:280px;height:255px;margin:10px auto 8px;cursor:pointer;filter:drop-shadow(0 18px 24px rgba(111,77,63,.18))}
+    .cake-base{position:absolute;bottom:0;left:14px;width:252px;height:118px;background:linear-gradient(90deg,#c99383,#f1c6bc 48%,#d9a191);border-radius:18px 18px 40px 40px;border-bottom:10px solid #b98677}
+    .cake-top{position:absolute;left:12px;bottom:108px;width:256px;height:62px;border-radius:50%;background:#fbf0eb;z-index:2}
+    .icing{position:absolute;left:14px;bottom:100px;width:252px;height:66px;background:linear-gradient(#fff8f6,#f9e3dd);border-radius:38px 38px 28px 28px;z-index:3;clip-path:polygon(0 0,100% 0,100% 58%,93% 58%,89% 96%,81% 96%,78% 61%,67% 61%,64% 87%,54% 87%,51% 62%,40% 62%,37% 99%,28% 99%,25% 61%,15% 61%,12% 82%,4% 82%,0 60%)}
+    .candle{position:absolute;bottom:166px;width:13px;height:55px;border-radius:3px;background:repeating-linear-gradient(45deg,#fff 0px,#fff 10px,#d7a6b2 10px,#d7a6b2 16px);z-index:1}
+    .candle:nth-child(1){left:85px}.candle:nth-child(2){left:134px}.candle:nth-child(3){left:183px}
+    .flame{position:absolute;bottom:53px;left:-4px;width:20px;height:29px;background:linear-gradient(#fff0a8,#ffbf7b,#ef95ae);border-radius:70% 0 70% 70%;transform:rotate(-45deg);filter:drop-shadow(0 0 10px #ffbb7c);animation:flicker .85s infinite alternate}
+    @keyframes flicker{to{transform:rotate(-41deg) scale(.87)}}
+    .cake.blown .flame{display:none}
+    .cake.finished{cursor:default}
+    .cake-msg{font:700 24px 'Caveat',cursive;color:#9d6678;text-align:center;min-height:34px}
+    .surprise-card{text-align:center;padding:36px 24px}
+    .surprise-card p{max-width:610px;margin:14px auto 22px;line-height:1.9;color:#715953}
+    .big-heart{font-size:58px;animation:pulse 1.6s infinite}
+    @keyframes pulse{50%{transform:scale(1.12)}}
+    footer{text-align:center;padding:36px 10px 48px;color:#8f746b;font-size:13px}
+    .icon-float{position:fixed;right:18px;bottom:18px;width:58px;height:58px;padding:0;display:grid;place-items:center;font-size:22px;z-index:12}
+    .modal{position:fixed;inset:0;background:rgba(71,47,43,.38);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:16px;z-index:40}
+    .modal.show{display:flex}
+    .modal-box{width:min(640px,100%);max-height:90vh;overflow:auto;background:#fffaf6;border-radius:26px;padding:24px;box-shadow:var(--shadow);position:relative}
+    .close{position:absolute;right:14px;top:12px;border:none;background:transparent;font-size:28px;color:#886760}
+    .modal-box h3{font:700 36px 'Playfair Display',serif;margin:6px 0 10px;color:#5d433d}
+    .modal-box p{line-height:1.85;color:#715953}
+    .modal-box label{display:block;margin:16px 0 6px;color:#8b6d66;font-size:13px;font-weight:700;letter-spacing:.4px}
+    .modal-box input,.modal-box textarea{width:100%;border-radius:14px;border:1px solid rgba(147,118,108,.22);padding:12px 14px;background:#fffcf8;color:#5d433d}
+    .modal-box textarea{min-height:170px;resize:vertical}
+    .confetti{position:fixed;z-index:70;pointer-events:none;width:8px;height:14px;top:-20px;animation:fall var(--dur) linear forwards}
+    @keyframes fall{to{transform:translate(var(--dx),110vh) rotate(850deg);opacity:0}}
+
+    /* PRELAUNCH SCREEN */
+    #mainSite[hidden]{display:none!important}
+    .prelaunch-screen{position:fixed;inset:0;z-index:120;overflow:hidden;background:linear-gradient(160deg,#f0dfd4 0%,#f8efe7 55%,#eedad0 100%)}
+    .prelaunch-screen.hidden{display:none}
+    .prelaunch-grid{position:absolute;inset:0;background-image:linear-gradient(transparent 39px, rgba(149,117,103,.05) 40px),linear-gradient(90deg, transparent 39px, rgba(149,117,103,.03) 40px);background-size:40px 40px;opacity:.55;pointer-events:none}
+    .orb{position:absolute;border-radius:50%;filter:blur(14px);opacity:.6;animation:drift 11s ease-in-out infinite alternate}
+    .orb.one{width:220px;height:220px;left:-40px;top:10%;background:rgba(244,195,206,.55)}
+    .orb.two{width:280px;height:280px;right:-80px;top:5%;background:rgba(255,237,201,.65);animation-duration:15s}
+    .orb.three{width:240px;height:240px;left:12%;bottom:-60px;background:rgba(216,180,140,.35);animation-duration:13s}
+    .orb.four{width:210px;height:210px;right:20%;bottom:-70px;background:rgba(236,201,215,.5);animation-duration:17s}
+    @keyframes drift{50%{transform:translateY(-20px) translateX(12px) scale(1.05)}}
+    .prelaunch-shell{position:relative;min-height:100svh;display:grid;place-items:center;padding:20px}
+    .prelaunch-card{position:relative;width:min(760px,92%);padding:34px 28px 30px;text-align:center;z-index:2}
+    .seal{position:absolute;top:20px;right:26px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#f3d4dc;color:#975c70;font-size:28px;box-shadow:0 8px 18px rgba(145,87,104,.18)}
+    .prelaunch-card h2{font:700 clamp(44px,7vw,82px) 'Playfair Display',serif;line-height:1.02;margin:12px 0;color:#5f433d}
+    .prelaunch-card h2 em{display:block;font:700 clamp(28px,5vw,52px) 'Caveat',cursive;color:#b26f84;font-style:normal;margin-top:8px}
+    .prelaunch-card p{max-width:580px;margin:0 auto;line-height:1.88;color:#735953}
+    .launch-countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:640px;margin:26px auto 12px}
+    .launch-box{padding:20px 8px;border-radius:20px;background:rgba(255,255,255,.55);backdrop-filter:blur(5px);border:1px solid rgba(144,111,98,.12);box-shadow:0 12px 25px rgba(103,78,68,.08)}
+    .launch-box strong{display:block;font:700 clamp(28px,5vw,52px) 'Playfair Display',serif;color:#a06376}
+    .launch-box span{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:#9b7a70}
+    .subnote{margin-top:12px;font-size:14px;color:#866861}
+    .wish-tools{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .wish-counter{font-weight:700;color:#8a5f67;padding:12px 18px;border-radius:999px;background:#fff7f2;border:1px solid rgba(144,111,98,.12)}
+    .floating-field{position:absolute;inset:0;overflow:hidden;z-index:1}
+    .floatie{position:absolute;display:grid;place-items:center;user-select:none;touch-action:none;cursor:pointer;box-shadow:0 10px 22px rgba(110,81,67,.12);animation:floatie var(--dur,10s) ease-in-out infinite;border:1px solid rgba(142,112,100,.08)}
+    .floatie.star{width:54px;height:54px;border-radius:18px;background:#fff4d7;color:#b97a54;font-size:24px}
+    .floatie.heart{width:56px;height:56px;border-radius:50%;background:#f8d8e1;color:#a96579;font-size:23px}
+    .floatie.note{padding:12px 14px;border-radius:14px;background:#fffaf4;color:#7d6159;font-size:13px;max-width:130px;text-align:center}
+    .floatie.tape{width:78px;height:22px;border-radius:4px;background:rgba(244,219,173,.76)}
+    @keyframes floatie{50%{transform:translateY(-18px) rotate(var(--rot,0deg))}}
+    .tipline{margin-top:14px;font-size:13px;color:#98786f}
+    .unlock-badge{display:inline-flex;align-items:center;gap:8px;justify-content:center;margin-top:12px;padding:8px 14px;border-radius:999px;background:#fff4ef;color:#8d6870;border:1px solid rgba(144,111,98,.12);font-size:13px}
+
+    @media (max-width:860px){.hero,.memory-wrap{grid-template-columns:1fr}.letters-grid{grid-template-columns:1fr}.polaroid{width:min(360px,92%)}}
+    @media (max-width:620px){.topbar{flex-direction:column;align-items:flex-start}.hero{padding-top:12px}h1{font-size:50px}.countdown-grid,.launch-countdown{grid-template-columns:repeat(2,1fr)}.paper{padding:22px 18px}.letter-body{max-height:280px}.prelaunch-card{padding:26px 18px 24px}.seal{top:14px;right:16px;width:48px;height:48px;font-size:23px}}
+  /* MOBILE RESPONSIVE — RISQI SCRAPBOOK */
+@media (max-width:768px) {
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{width:100%;overflow-x:hidden}
+  button,a{-webkit-tap-highlight-color:transparent}
+  .wrap{width:min(100% - 28px,600px)}
+  .prelaunch-screen{overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .prelaunch-shell{min-height:100svh;padding:36px 14px;display:flex;align-items:center;justify-content:center}
+  .prelaunch-card{width:100%;max-width:520px;padding:48px 18px 26px;border-radius:24px}
+  .prelaunch-card h2{font-size:clamp(37px,9vw,58px);line-height:1.12;overflow-wrap:break-word;margin:14px 0 18px}
+  .prelaunch-card h2 em{font-size:clamp(27px,7vw,40px);line-height:1.2}
+  .prelaunch-card p{font-size:13px;line-height:1.8;padding:0 3px}
+  .seal{width:43px;height:43px;right:14px;top:12px;font-size:22px}
+  .launch-countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:25px auto 16px}
+  .launch-box{min-width:0;border-radius:13px;padding:14px 3px}
+  .launch-box strong{font-size:clamp(20px,5.7vw,34px);line-height:1.25}
+  .launch-box span{display:block;font-size:9px;letter-spacing:.4px}
+  .subnote,.tipline{font-size:11px;line-height:1.6}
+  .wish-tools{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+  .wish-counter,.wish-tools .primary{font-size:12px;padding:12px 14px;min-height:44px}
+  .unlock-badge{font-size:11px;padding:9px 12px}
+  .floating-field{pointer-events:none}
+  .floatie{pointer-events:auto;max-width:105px}
+  .floatie.star,.floatie.heart{width:44px;height:44px;font-size:20px}
+  .floatie.note{font-size:11px;padding:9px}
+  .topbar{padding:18px 0;gap:10px}
+  .brand{font-size:30px}
+  .actions{width:100%;justify-content:flex-start}
+  .chip{min-height:44px;padding:11px 16px}
+  .hero{display:flex;flex-direction:column;gap:22px;padding-top:14px}
+  .hero>*{width:100%;min-width:0}
+  .paper{border-radius:22px;padding:24px 19px}
+  h1{font-size:clamp(42px,11vw,60px);line-height:1.12;overflow-wrap:break-word}
+  h1 em{font-size:clamp(28px,7vw,42px);line-height:1.2}
+  .lead{font-size:14px;line-height:1.85}
+  .hero-buttons{flex-direction:column}
+  .hero-buttons a{text-align:center;width:100%;min-height:48px;display:grid;place-items:center}
+  .photo-board{padding:36px 16px}
+  .polaroid{width:min(82%,320px);margin:auto}
+  .polaroid .frame img{width:100%;height:100%;object-fit:cover}
+  .section{padding:45px 0}
+  .section-title h2{font-size:clamp(30px,8vw,43px);line-height:1.2}
+  .section-title p{font-size:14px;line-height:1.8}
+  .letters-grid{grid-template-columns:1fr;gap:15px}
+  .letter-card{min-width:0;padding:19px 15px}
+  .letter-title{display:flex;flex-wrap:wrap;gap:12px}
+  .letter-title h3{font-size:23px;overflow-wrap:anywhere}
+  .letter-btn{min-height:44px;min-width:85px;padding:12px 16px}
+  .letter-body{font-size:14px;line-height:1.9;padding:17px 14px;max-height:65svh;overflow-y:auto;overflow-wrap:anywhere;-webkit-overflow-scrolling:touch}
+  .cake-area{width:100%;padding:28px 8px 24px;overflow:hidden}
+  .cake{touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;max-width:100%}
+  .cake-msg{font-size:22px;max-width:95%;line-height:1.4;text-align:center}
+  #relightBtn{min-height:44px}
+  .surprise-card{padding:32px 18px}
+  .surprise-card p{font-size:14px;line-height:1.9}
+  .primary{min-height:46px}
+  .modal{padding:12px}
+  .modal-box{max-height:85svh;overflow-y:auto;border-radius:20px;padding:27px 19px;-webkit-overflow-scrolling:touch}
+  .modal-box h3{font-size:29px}
+  .icon-float{right:15px;bottom:calc(15px + env(safe-area-inset-bottom));width:52px;height:52px}
+  footer{padding-bottom:85px}
+}
+@media (max-width:360px) {
+  .prelaunch-card{padding:43px 13px 20px}
+  .prelaunch-card h2{font-size:33px}
+  .launch-countdown{gap:5px}
+  .launch-box strong{font-size:21px}
+  .launch-box span{font-size:8px}
+  .wish-tools{flex-direction:column}
+  .wish-tools>*{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.orb,.floatie{animation:none!important}}
+
+</style>
+</head>
+<body>
+  <div id="prelaunchScreen" class="prelaunch-screen">
+    <div class="prelaunch-grid"></div>
+    <div class="orb one"></div><div class="orb two"></div><div class="orb three"></div><div class="orb four"></div>
+    <div id="floatingField" class="floating-field"></div>
+    <div class="prelaunch-shell">
+      <div class="paper prelaunch-card">
+        <div class="seal">♡</div>
+        <div class="eyebrow">Scrapbook sealed for now</div>
+        <h2>Open on 28 Oktober 2026 <em>until then, this little scrapbook stays closed</em></h2>
+        <p>Sebelum tanggal <b>28 Oktober 2026</b>, isi utama website belum bisa dibuka dulu yaa. Jadi sementara ini yang muncul cuma halaman countdown spesialnya aja. Supaya nggak polos, kamu bisa main di background-nya: klik bintang atau hati yang beterbangan, drag note kecilnya, dan bikin mini wish dulu di sini ♡</p>
+        <div class="launch-countdown">
+          <div class="launch-box"><strong id="launchDays">00</strong><span>Days</span></div>
+          <div class="launch-box"><strong id="launchHours">00</strong><span>Hours</span></div>
+          <div class="launch-box"><strong id="launchMinutes">00</strong><span>Minutes</span></div>
+          <div class="launch-box"><strong id="launchSeconds">00</strong><span>Seconds</span></div>
+        </div>
+        <div class="subnote" id="launchCaption">Menuju saat scrapbook dibuka ✦</div>
+        <div class="wish-tools">
+          <div class="wish-counter">Wishes collected: <span id="wishCount">0</span></div>
+          <button class="primary" id="wishBurstBtn" type="button">Make a tiny wish ✦</button>
+        </div>
+        <div class="unlock-badge">🔒 Locked until 28 Oktober 2026</div>
+        <div class="tipline">Hint: klik elemen yang beterbangan untuk menambah wish, lalu drag note kecilnya ke mana saja.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="mainSite" hidden>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">Risqi's Scrapbook ♡</div>
+        <div class="actions">
+          <button class="chip" id="musicBtn">♫ Play music</button>
+          <button class="chip" id="settingsBtn" hidden aria-hidden="true" tabindex="-1" style="display:none">Customize</button>
+        </div>
+      </div>
+
+      <section class="hero">
+        <div class="paper">
+          <div class="eyebrow">Birthday Scrapbook</div>
+          <h1>Happy Birthday, <span id="heroName">Risqi</span> <em>one page full of love and little wishes</em></h1>
+          <p class="lead">A little scrapbook for your special day—full of warm notes, one favorite photo, sweet memories, birthday wishes, and a tiny surprise at the end. Semoga halaman kecil ini bisa bikin kamu senyum-senyum sendiri yaa, sayang.</p>
+          <div class="hero-buttons">
+            <a href="#letters" class="primary" style="text-decoration:none">Open the letters</a>
+            <a href="#cake" class="chip secondary" style="text-decoration:none">Make a wish</a>
+          </div>
+        </div>
+        <div class="paper photo-board">
+          <div class="sticker heart">♡</div>
+          <div class="sticker star">✦</div>
+          <div class="polaroid">
+            <div class="frame"><img src="assets/risqi-photo.png" alt="Foto Risqi masa kecil" /></div>
+            <div class="caption">my favorite little cutie ♡</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="letters">
+        <div class="section-title">
+          <div class="small">Letters</div>
+          <h2>Four little letters for you</h2>
+          <p>Empat surat kecil untuk kamu baca satu-satu. Ada doa, cerita, dan banyak kata yang aku pengen kamu tahu ♡</p>
+        </div>
+        <div class="language-switch" role="group" aria-label="Pilih bahasa surat"><span>Read letters in:</span> <button class="lang-btn active" data-lang="original" aria-pressed="true">Original</button><button class="lang-btn" data-lang="id" aria-pressed="false">Indonesia</button><button class="lang-btn" data-lang="en" aria-pressed="false">English</button></div>
+        <div class="letters-grid">
+          <div class="letter-card"><div class="letter-title"><h3>Letter 01 — For Your Special Day</h3><button class="letter-btn letter-toggle" data-letter="0" aria-expanded="false">Open</button></div><div class="letter-body" id="letterBody0"></div></div>
+          <div class="letter-card"><div class="letter-title"><h3>Letter 02 — To Every Dream of Yours</h3><button class="letter-btn letter-toggle" data-letter="1" aria-expanded="false">Open</button></div><div class="letter-body" id="letterBody1"></div></div>
+          <div class="letter-card"><div class="letter-title"><h3>Letter 03 — I'm Grateful for You</h3><button class="letter-btn letter-toggle" data-letter="2" aria-expanded="false">Open</button></div><div class="letter-body" id="letterBody2"></div></div>
+          <div class="letter-card"><div class="letter-title"><h3>Letter 04 — My Sederhana yang Sempurna</h3><button class="letter-btn letter-toggle" data-letter="3" aria-expanded="false">Open</button></div><div class="letter-body" id="letterBody3"></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="cake">
+        <div class="section-title">
+          <div class="small">Interactive Cake</div>
+          <h2>Blow the candles, then take a bite</h2>
+          <p>Tap once to blow the candles. After the flames are gone, tap the cake again and again to make it look like it's being eaten little by little ♡</p>
+        </div>
+        <div class="paper cake-area">
+          <div class="cake" id="cakeWidget" tabindex="0" role="button" aria-label="Klik kue untuk meniup lilin">
+            
+            
+            
+            <canvas id="cakeCanvas" width="280" height="255" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none"></canvas>
+          </div>
+          <div class="cake-msg" id="cakeMsg">Tap the cake to blow the candles ✨</div>
+          <button class="chip" id="relightBtn" style="display:none;margin-top:8px">Relight candles</button>
+        </div>
+      </section>
+
+      <section class="section" id="finale">
+        <div class="section-title">
+          <div class="small">Surprise Ending</div>
+          <h2>One more surprise before you go</h2>
+          <p>Kalau udah selesai baca semuanya, pencet tombol di bawah ini yaa. Ada satu pesan penutup spesial yang aku simpan di akhir halaman.</p>
+        </div>
+        <div class="paper surprise-card">
+          <div class="big-heart">♡</div>
+          <p id="surpriseText">Risqi, happy birthday, my love! Semoga hidup selalu memperlakukanmu dengan lembut, mimpimu satu per satu jadi nyata, dan hatimu selalu punya alasan untuk tersenyum. Thank you for existing, and for being my favorite part of this little scrapbook. I love you, always. ♡</p>
+          <button class="primary" id="surpriseBtn">Open my final surprise</button>
+        </div>
+      </section>
+
+      <footer>Made with love for Risqi — scrapbook edition ♡</footer>
+    </div>
+
+    <button class="icon-float" id="floatingMusic" aria-label="Play atau pause music">♫</button>
+    <audio id="customAudio" src="music.mp3" loop preload="none"></audio>
+
+    <div class="modal" id="surpriseModal"><div class="modal-box"><button class="close" data-close="surpriseModal">×</button><h3>Happy Birthday, Sayang ♡</h3><p id="surpriseModalText"></p></div></div>
+    <div class="modal" id="settingsModal" hidden aria-hidden="true">
+      <div class="modal-box">
+        <button class="close" data-close="settingsModal">×</button>
+        <h3>Customize Scrapbook</h3>
+        <p>Kamu bisa ubah nama, tanggal ulang tahun, isi keempat letter, dan pesan surprise di sini. Perubahan akan disimpan di browser perangkat yang dipakai.</p>
+        <label for="nameInput">Nama penerima</label><input id="nameInput" type="text" />
+        <label for="birthdayInput">Tanggal ulang tahun</label><input id="birthdayInput" type="date" />
+        <label for="letterInput0">Letter 01</label><textarea id="letterInput0"></textarea>
+        <label for="letterInput1">Letter 02</label><textarea id="letterInput1"></textarea>
+        <label for="letterInput2">Letter 03</label><textarea id="letterInput2"></textarea>
+        <label for="letterInput3">Letter 04</label><textarea id="letterInput3"></textarea>
+        <label for="surpriseInput">Pesan surprise</label><textarea id="surpriseInput"></textarea>
+        <div style="display:flex;justify-content:flex-end;margin-top:18px"><button class="primary" id="saveBtn">Save changes</button></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const DEFAULTS = {
+      name: 'Risqi',
+      birthday: '2026-10-28',
+      letters: [
+`happy birthday, sayaanggg!! 🥳🎂
+
+selamat ulang tahun yaa, semoga di umur yang baru ini banyak hal baik yang dateng ke kamu. semoga semua yang lagi kamu usahain satu-satu nemu jalannya, rezekinya makin lancar, sehat terus, panjang umur, dan bahagia selaluuu.
+
+semoga kamu juga makin deket sama semua yang kamu cita-citain. aku tau kamu punya banyak hal yang pengen kamu capai dan banyak yang lagi kamu usahain sekarang. semoga capeknya ga sia-sia, semoga selalu ada alasan buat kamu semangat lagi pas lagi ngerasa berat, dan semoga kamu ga lupa kalo kamu juga berhak istirahat, makan yang bener, sama nikmatin hidup. jangan mentang-mentang pengen ngejar banyak hal terus diri sendiri malah dibikin nomor sekian, badan kamu gapunya sistem unlimited yang bisa dipake terus-terusan, jadi perlu restart jugaaa 😭
+
+terus semoga di umur sekarang kamu makin sabar, makin bijak, makin kuat, makin sayang sama diri sendiri dan orang-orang di sekitar kamu. semoga kamu selalu dikelilingi orang yang tulus, yang dukung kamu, yang percaya sama kamu, bahkan pas kamu sendiri lagi ragu sama kemampuanmu. pokoknya semoga dunia lebih baik sama kamu yaa, sayaangg.
+
+OH IYA, turut berduka cita juga ya atas pensiunnya messi 😔🙏🏻 WKWKWKWK. akhirnya kamu harus belajar menerima kenyataan kalo idola kesayanganmu udah gantung sepatu. berat emang, aku tau, pasti butuh waktu buat sembuh dari luka sedalam ini 😔 semoga kamu tetep kuat menjalani hari-hari tanpa bisa ngeliat messi main kayak dulu lagi. aku turut merasakan kesedihanmu, walaupun sebenernya aku ngakakk WKWKWK. semangat yaa, sayang, hidup harus terus berjalan meskipun messi udah pensiun 😭☝🏻
+
+buat barca juga semoga makin membaik yaa, ga tega liat kamu harus menghadapi cobaan sepak bola terus-terusan. tapi ya gimana, namanya juga pilihan hidup, aku kan ga bisa maksa kamu tobat 😭 terus buat MU, semoga suatu hari bisa bikin fansnya bahagia tanpa harus ngetes kesabaran mereka tiap pertandingan. aamiin untuk seluruh umat bola yang sedang diuji WKWKWK.
+
+tapi serius dikit yaa.
+
+aku seneng bisa kenal kamu sejauh ini. seneng bisa ngobrol sama kamu, dengerin cerita-cerita kamu, tau hal-hal kecil tentang kamu, dan pelan-pelan kenal kamu lebih jauh dari yang awalnya aku tau. aku mungkin ga selalu punya kata-kata yang bagus buat disampein, tapi aku beneran berharap banyak hal baik datang ke hidupmu. bukan cuma pas ulang tahun ini aja, tapi juga di hari-hari biasa yang mungkin ga selalu mudah buat kamu lewatin.
+
+aku harap kamu bisa jadi apa pun yang selama ini kamu pengenin, bisa bangga sama diri kamu sendiri, dan suatu hari nanti bisa ngeliat ke belakang sambil bilang kalo semua yang kamu perjuangin ternyata ada hasilnya. semoga nanti kamu bisa menikmati hidup yang selama ini kamu usahain, tanpa harus terus-terusan mikirin apa yang belum kamu punya.
+
+dan semoga di antara banyaknya hal yang lagi kamu kejar, kamu tetep punya waktu buat hal-hal kecil yang bikin kamu bahagia. termasuk hal-hal receh, obrolan ga jelas, debat something yang ga ada habisnya, sama orang-orang yang bikin hari kamu sedikit lebih menyenangkan (i hope it's meeee) WKWKWK.
+
+aku juga berharap semoga kita bisa terus kenal satu sama lain, terus punya cerita buat dibagi, terus bisa saling ngerti dan belajar satu sama lain. semoga kalau nanti ada hari yang berat, kita bisa ngobrol baik-baik. kalau ada yang ga dimengerti, semoga kita mau saling dengerin. dan kalau lagi sama-sama sibuk sama urusan masing-masing, semoga kita tetep inget kalo ada orang yang pengen kita kabarin dan kita tanyain harinya gimana.
+
+aku ga tau nanti bakal ada cerita apa aja di depan, tapi untuk sekarang aku seneng kamu ada di hidupku. aku harap kamu juga selalu punya alasan buat ngerasa bersyukur sama hidup yang kamu punya, termasuk buat hal-hal sederhana yang kadang suka kelewat karena terlalu sibuk mikirin hal besar.
+
+sekali lagi, happy birthday yaa, sayanggg!! semoga umur baru ini jadi awal dari banyak hal baik buat kamu. semoga doa-doa yang kamu simpen sendiri juga satu-satu dikabulin, semoga langkahmu dimudahkan, dan semoga kamu selalu punya kekuatan buat terus jalan meskipun ga semua hal berjalan sesuai rencana.
+
+jangan lupa bahagia, jangan lupa makan, jangan lupa istirahat, jangan lupa bersyukur, dan jangan lupa kalo meskipun messi udah pensiun, kehidupanmu masih harus berlanjut. 😭🙏🏻 semangat ya menghadapi kenyataan itu, sayang WKWKWK.
+
+wish u all the best, sayang. i'm rooting for u, always. 🤍
+
+— dari manusia yang baik banget udah mau ngucapin sepanjang ini, jadi tolong dibaca yang bener yaa. minimal jangan sambil mikirin bola 😔☝🏻`,
+`i hope you can achieve every dream you working so hard for. i hope life give you all teh opportunities, happiness, and success you deserve. i'll always be here cheering for you and blessing in you every step of the way.`,
+`just wanna tell you thank you for coming into my life, thankyou for actually making me smile and laugh. thank you for being my supporter. thank you for carung about me. i really appreciate you sooo much sayang. i loveeee you a lot more than universe.`,
+`teruntuk cinta hatiku, my sayang, my man, and my 'sederhana yang sempurna', i hope your days full with laughter and happiness. i hope you are surrounded with good friends. may Allah ease all your way to achieve your dreams. you deserve the happiness for being a gentleman and brings a smile to my face.`
+      ],
+      surprise: `Risqi, happy birthday, my love! Semoga hidup selalu memperlakukanmu dengan lembut, mimpimu satu per satu jadi nyata, dan hatimu selalu punya alasan untuk tersenyum. Thank you for existing, and for being my favorite part of this little scrapbook. I love you, always. ♡`
+    };
+
+    let cfg;
+    try{ cfg = {...DEFAULTS, ...JSON.parse(localStorage.getItem('risqi-birthday-config') || '{}')} }catch{ cfg = {...DEFAULTS} }
+    if(!Array.isArray(cfg.letters) || cfg.letters.length !== 4) cfg.letters = [...DEFAULTS.letters];
+
+    const $ = id => document.getElementById(id);
+    const z = n => String(n).padStart(2,'0');
+    const LAUNCH_AT = new Date('2026-10-28T00:00:00+07:00');
+    let wishCount = 0;
+    let launchCelebrated = false;
+
+
+    // All translations are bundled locally, so the language buttons work offline.
+    const LETTER_TRANSLATIONS = {
+      id: [null, "aku harap kamu bisa mencapai setiap mimpi yang selama ini kamu perjuangin dengan keras. semoga hidup ngasih kamu semua kesempatan, kebahagiaan, dan kesuksesan yang pantas kamu dapetin. aku akan selalu ada di sini buat nyemangatin kamu dan mendoakanmu di setiap langkah perjalananmu.", "aku cuma mau bilang makasih udah hadir di hidupku. makasih udah beneran bikin aku senyum dan ketawa. makasih udah jadi penyemangatku. makasih udah peduli sama aku. aku bener-bener menghargai kamu banyaaak banget, sayang. aku sayangggg kamu jauh lebih besar daripada seluruh semesta.", "untuk cinta hatiku, sayangku, lelakiku, dan “sederhana yang sempurna” versiku, semoga hari-harimu selalu penuh tawa dan bahagia. semoga kamu dikelilingi teman-teman yang baik. semoga Allah memudahkan semua jalanmu untuk meraih impian. kamu pantas bahagia karena kamu adalah laki-laki yang baik dan selalu bisa bikin aku tersenyum."],
+      en: ["happy birthday, my looove!! 🥳🎂\n\nhappy birthday! i hope this new chapter brings you so many good things. may everything you've been working for find its way, may your blessings keep growing, and may you always be healthy, live a long life, and be happyyy.\n\ni hope you get closer to all the things you dream about. i know there's so much you want to achieve and so much you're working on right now. i hope none of your hard work goes to waste. i hope you always find another reason to keep going when things feel heavy, and i hope you remember that you deserve to rest, eat properly, and enjoy life too. don't put yourself last just because you're chasing so many things. your body doesn't have an unlimited system that can run forever—it needs a restart sometimes toooo 😭\n\ni hope this new age makes you more patient, wiser, stronger, and kinder to yourself and the people around you. i hope you're always surrounded by sincere people who support you and believe in you, even when you doubt yourself. more than anything, i hope the world treats you more gently, my love.\n\nOH AND BY THE WAY, my condolences on Messi's retirement 😔🙏🏻 WKWKWKWK. you finally have to accept that your beloved idol has hung up his boots. i know it's hard and that a wound this deep must take time to heal 😔 i hope you stay strong while going through life without seeing Messi play like he used to. i share your grief—even though i'm actually laughing WKWKWK. hang in there, love. life must go on even though Messi has retired 😭☝🏻\n\ni hope Barça gets better too. i feel bad watching you face one football trial after another. but well, these are your life choices and i can't force you to repent 😭 and as for MU, i hope one day they'll make their fans happy without testing their patience every match. amen for all the football fans currently being tested WKWKWK.\n\nbut seriously for a moment.\n\ni'm happy i've gotten to know you this far. happy that we get to talk, that i get to hear your stories, learn the little things about you, and slowly get to know you more deeply than i did at first. i might not always have the perfect words, but i genuinely hope good things come into your life—not only on your birthday, but also on all those ordinary days that aren't always easy to get through.\n\ni hope you become everything you've always wanted to be, feel proud of yourself, and someday look back and realize that everything you fought for was worth it. i hope you get to enjoy the life you've been working toward without constantly worrying about the things you don't have yet.\n\nand among all the things you're chasing, i hope you still make time for the little things that make you happy. silly moments, random conversations, never-ending debates about something, and people who make your day a little brighter (i hope it's meeee) WKWKWK.\n\ni hope we can keep getting to know each other, keep sharing stories, and keep learning to understand each other. when days get difficult, i hope we can talk things through kindly. when we don't understand something, i hope we'll listen. and when we're both busy with our own lives, i hope we remember there's someone who wants to hear from us and ask how our day went.\n\ni don't know what stories are waiting for us ahead, but right now i'm happy that you're in my life. i hope you always have reasons to feel grateful for the life you have, including the simple things we sometimes miss while focusing too much on the big ones.\n\nonce again, happy birthday, my looove!! i hope this new age is the beginning of so many good things for you. may the prayers you keep to yourself be answered one by one, may your path be made easier, and may you always have the strength to keep going, even when things don't turn out as planned.\n\ndon't forget to be happy, eat, rest, be grateful, and remember that even though Messi has retired, your life must go on 😭🙏🏻 stay strong as you face that reality, love WKWKWK.\n\nwish u all the best, sayang. i'm rooting for u, always. 🤍\n\n— from a very kind human being who took the time to write this much, so please read it properly. at least don't read it while thinking about football 😔☝🏻", null, null, "to the love of my heart, my sayang, my man, and my “simple kind of perfect,” i hope your days are filled with laughter and happiness. i hope you're surrounded by good friends. may Allah make every path toward your dreams easier. you deserve happiness for being such a gentleman and for bringing a smile to my face."]
+    };
+    let letterLanguage = 'original';
+    const languageButtons = document.querySelectorAll('.lang-btn');
+    function renderLetters(){
+      cfg.letters.forEach((original,i)=>{
+        let selected = original;
+        if(letterLanguage==='en' && LETTER_TRANSLATIONS.en[i]) selected = LETTER_TRANSLATIONS.en[i];
+        if(letterLanguage==='id' && LETTER_TRANSLATIONS.id[i]) selected = LETTER_TRANSLATIONS.id[i];
+        $('letterBody'+i).textContent = selected;
+      });
+    }
+    languageButtons.forEach(btn=>btn.addEventListener('click',()=>{
+      letterLanguage=btn.dataset.lang;
+      languageButtons.forEach(b=>{let active=b.dataset.lang===letterLanguage;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+      renderLetters();
+    }));
+
+    function refresh(){
+      $('heroName').textContent = cfg.name;
+      renderLetters();
+      $('surpriseText').textContent = cfg.surprise;
+      $('surpriseModalText').textContent = cfg.surprise;
+      renderCountdown();
+    }
+
+    function nextBirthday(){
+      const [y,m,d] = cfg.birthday.split('-').map(Number);
+      const now = new Date();
+      if(!m || !d) return new Date(now.getFullYear(), 10, 28);
+      let target = new Date(now.getFullYear(), m-1, d, 0, 0, 0);
+      if(target.getTime() < now.getTime() && !(target.toDateString() === now.toDateString())) target = new Date(now.getFullYear()+1, m-1, d);
+      return target;
+    }
+
+    function renderCountdown(){ /* Countdown hanya di halaman pembuka sebelum 28 Oktober. */ }
+
+    function renderLaunchCountdown(){
+      const now = new Date();
+      let secs = Math.max(0, Math.floor((LAUNCH_AT - now) / 1000));
+      const locked = secs > 0;
+      if(!locked){
+        $('launchDays').textContent = '00'; $('launchHours').textContent = '00'; $('launchMinutes').textContent = '00'; $('launchSeconds').textContent = '00';
+        $('launchCaption').textContent = 'Scrapbook unlocked!';
+        return false;
+      }
+      const d = Math.floor(secs/86400); secs%=86400;
+      const h = Math.floor(secs/3600); secs%=3600;
+      const m = Math.floor(secs/60); secs%=60;
+      $('launchDays').textContent = z(d); $('launchHours').textContent = z(h); $('launchMinutes').textContent = z(m); $('launchSeconds').textContent = z(secs);
+      $('launchCaption').textContent = 'Menuju saat scrapbook dibuka ✦';
+      return true;
+    }
+
+    function updateGate(){
+      const locked = renderLaunchCountdown();
+      $('prelaunchScreen').classList.toggle('hidden', !locked);
+      $('mainSite').hidden = locked;
+      if(!locked && !launchCelebrated){
+        confetti(90);
+        launchCelebrated = true;
+      }
+    }
+
+    $('settingsBtn').onclick = () => {
+      $('nameInput').value = cfg.name;
+      $('birthdayInput').value = cfg.birthday;
+      cfg.letters.forEach((text, i) => $('letterInput'+i).value = text);
+      $('surpriseInput').value = cfg.surprise;
+      $('settingsModal').classList.add('show');
+    };
+
+    $('saveBtn').onclick = () => {
+      cfg = { name: $('nameInput').value.trim() || 'Risqi', birthday: $('birthdayInput').value || DEFAULTS.birthday, letters: [0,1,2,3].map(i => $('letterInput'+i).value), surprise: $('surpriseInput').value || DEFAULTS.surprise };
+      localStorage.setItem('risqi-birthday-config', JSON.stringify(cfg));
+      refresh();
+      $('settingsModal').classList.remove('show');
+    };
+
+    document.querySelectorAll('.letter-toggle').forEach(button => button.addEventListener('click', () => {
+      const i = Number(button.dataset.letter);
+      const body = $('letterBody'+i);
+      const open = body.classList.toggle('open');
+      button.textContent = open ? 'Close' : 'Open';
+      button.setAttribute('aria-expanded', String(open));
+      if(open) body.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }));
+
+    function confetti(amount=120){
+      const colors=['#f5d5a4','#f0c1cf','#d5b18c','#ffffff','#e6d9c9','#f7e7d4'];
+      for(let i=0;i<amount;i++){
+        const p=document.createElement('i');
+        p.className='confetti';
+        p.style.left=Math.random()*100+'vw';
+        p.style.background=colors[Math.floor(Math.random()*colors.length)];
+        p.style.setProperty('--dur',(2.6+Math.random()*3.2)+'s');
+        p.style.setProperty('--dx',(-200+Math.random()*400)+'px');
+        p.style.animationDelay=(Math.random()*.9)+'s';
+        document.body.appendChild(p);
+        setTimeout(()=>p.remove(),7200);
+      }
+    }
+
+    // Posisi gigitan mengikuti titik klik / sentuhan, bukan posisi tetap.
+    const cakeCanvas = $('cakeCanvas');
+    const ctx = cakeCanvas.getContext('2d');
+    const bites = [];
+    const BITE_LIMIT = 24;
+    let candlesOut = false;
+    let cakeFinished = false;
+    function drawCake(){
+      ctx.clearRect(0,0,280,255);
+      if(cakeFinished)return;
+      // Semua lapisan digambar pada satu kanvas supaya benar-benar berlubang.
+      const body = ctx.createLinearGradient(15,0,265,0);
+      body.addColorStop(0,'#c99383');body.addColorStop(.48,'#f1c6bc');body.addColorStop(1,'#d9a191');
+      ctx.fillStyle=body;ctx.beginPath();ctx.roundRect(14,137,252,118,[18,18,40,40]);ctx.fill();
+      ctx.fillStyle='#b98677';ctx.fillRect(33,246,215,9);
+      ctx.fillStyle='#fbf0eb';ctx.beginPath();ctx.ellipse(140,115,128,31,0,0,Math.PI*2);ctx.fill();
+      const icing=ctx.createLinearGradient(0,93,0,167);
+      icing.addColorStop(0,'#fff8f6');icing.addColorStop(1,'#f9e3dd');
+      ctx.fillStyle=icing;ctx.beginPath();ctx.moveTo(14,103);ctx.bezierCurveTo(15,83,265,83,266,103);
+      ctx.lineTo(266,141);ctx.bezierCurveTo(252,136,252,171,236,162);ctx.bezierCurveTo(226,154,226,137,211,139);
+      ctx.bezierCurveTo(196,138,197,165,181,163);ctx.bezierCurveTo(168,161,172,139,158,139);
+      ctx.bezierCurveTo(142,137,143,178,128,172);ctx.bezierCurveTo(112,169,117,138,102,138);
+      ctx.bezierCurveTo(83,135,85,165,70,159);ctx.bezierCurveTo(54,154,60,140,43,140);
+      ctx.bezierCurveTo(29,139,28,160,14,147);ctx.closePath();ctx.fill();
+      // Erase each clicked bite, in canvas coordinates.
+      ctx.save();ctx.globalCompositeOperation='destination-out';
+      for(const b of bites){
+        ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();
+      }
+      ctx.restore();
+      // Candles are drawn last so they are visible only before the blow.
+      for(const x of [85,134,183]){
+        if(cakeFinished)break;
+        ctx.fillStyle='#fff8fb';ctx.fillRect(x,55,13,53);
+        ctx.strokeStyle='#d7a6b2';ctx.lineWidth=3;
+        for(let y=60;y<104;y+=13){ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+13,y+11);ctx.stroke();}
+        if(!candlesOut){
+          ctx.fillStyle='#ffbb74';ctx.beginPath();ctx.ellipse(x+6,43,8,14,-.25,0,Math.PI*2);ctx.fill();
+          ctx.fillStyle='#fff3b0';ctx.beginPath();ctx.ellipse(x+6,45,4,8,-.25,0,Math.PI*2);ctx.fill();
+        }
+      }
+    }
+    function updateCakeMessage(){
+      if(!candlesOut) $('cakeMsg').textContent='Tap the cake to blow the candles ✨';
+      else if(cakeFinished) $('cakeMsg').textContent='YAAA kuenya habis dimakan birthday boy! 😭🎂♡';
+      else if(!bites.length) $('cakeMsg').textContent='Lilinnya udah mati! Sekarang tap di mana aja untuk gigit kuenya 🍰';
+      else $('cakeMsg').textContent=`Nom nom nom... ${bites.length}/${BITE_LIMIT} gigitan! 🍰`;
+    }
+    function takeBite(event){
+      if(cakeFinished)return;
+      if(!candlesOut){
+        candlesOut=true;$('cakeWidget').classList.add('blown');
+        $('relightBtn').style.display='inline-block';
+        confetti(55);drawCake();updateCakeMessage();return;
+      }
+      const rect=cakeCanvas.getBoundingClientRect();
+      const x=event && event.clientX!==undefined ? (event.clientX-rect.left)*280/rect.width : 140;
+      const y=event && event.clientY!==undefined ? (event.clientY-rect.top)*255/rect.height : 152;
+      // Only bites inside cake, not empty space or candle area.
+      const bx=Math.max(20,Math.min(260,x));
+      const by=Math.max(105,Math.min(243,y));
+      bites.push({x:bx,y:by,r:24+Math.random()*9});
+      if(bites.length>=BITE_LIMIT){cakeFinished=true;$('cakeWidget').classList.add('finished');confetti(90);}
+      drawCake();updateCakeMessage();
+    }
+    $('cakeWidget').addEventListener('click',takeBite);
+    $('cakeWidget').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();takeBite(null);}});
+    $('relightBtn').onclick=()=>{
+      candlesOut=false;cakeFinished=false;bites.length=0;
+      $('cakeWidget').classList.remove('blown','finished');
+      $('relightBtn').style.display='none';
+      drawCake();updateCakeMessage();
+    };
+    drawCake();updateCakeMessage();
+
+    $('surpriseBtn').onclick = () => { $('surpriseModal').classList.add('show'); confetti(170); };
+    document.querySelectorAll('[data-close]').forEach(btn => btn.onclick = () => $(btn.dataset.close).classList.remove('show'));
+    document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if(e.target === m) m.classList.remove('show'); }));
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') document.querySelectorAll('.modal').forEach(m => m.classList.remove('show')); });
+
+    // Music system
+    const audio = $('customAudio');
+    let audioCtx = null, tuneTimer = null, playing = false, tuneIndex = 0;
+    const notes = [392,440,523.25,440,392,329.63,349.23,392,440,392,349.23,329.63,293.66,329.63,392,0,349.23,392,440,523.25,587.33,523.25,440,392];
+    function tone(freq){ if(!freq || !audioCtx) return; const o = audioCtx.createOscillator(); const g = audioCtx.createGain(); o.type='sine'; o.frequency.value=freq; g.gain.setValueAtTime(.0001, audioCtx.currentTime); g.gain.exponentialRampToValueAtTime(.055, audioCtx.currentTime+.08); g.gain.exponentialRampToValueAtTime(.0001, audioCtx.currentTime+.48); o.connect(g).connect(audioCtx.destination); o.start(); o.stop(audioCtx.currentTime+.5); }
+    function fallbackMusic(){ const C = window.AudioContext || window.webkitAudioContext; if(!C) return; audioCtx = audioCtx || new C(); audioCtx.resume(); tone(notes[tuneIndex++ % notes.length]); tuneTimer = setInterval(() => tone(notes[tuneIndex++ % notes.length]), 530); }
+    function stopMusic(){ audio.pause(); clearInterval(tuneTimer); tuneTimer = null; playing = false; $('musicBtn').textContent='♫ Play music'; $('floatingMusic').textContent='♫'; }
+    async function toggleMusic(){ if(playing){ stopMusic(); return; } playing = true; try{ const test = await fetch('music.mp3', {method:'HEAD'}); if(!test.ok) throw Error('no mp3'); await audio.play(); }catch{ fallbackMusic(); } $('musicBtn').textContent='♫ Pause music'; $('floatingMusic').textContent='❚❚'; }
+    $('musicBtn').onclick = toggleMusic; $('floatingMusic').onclick = toggleMusic;
+
+    // Prelaunch interactive background
+    function makeFloatie(kind, label){
+      const el = document.createElement('button');
+      el.type = 'button';
+      el.className = `floatie ${kind}`;
+      el.textContent = label;
+      el.style.left = (Math.random()*88 + 4) + '%';
+      el.style.top = (Math.random()*82 + 6) + '%';
+      el.style.setProperty('--dur', (8 + Math.random()*8) + 's');
+      el.style.setProperty('--rot', (-8 + Math.random()*16) + 'deg');
+      el.addEventListener('click', () => {
+        wishCount += 1;
+        $('wishCount').textContent = wishCount;
+        el.style.left = (Math.random()*88 + 4) + '%';
+        el.style.top = (Math.random()*82 + 6) + '%';
+        confetti(10);
+      });
+      return el;
+    }
+
+    function addDraggable(el){
+      let startX = 0, startY = 0, originX = 0, originY = 0, dragging = false;
+      const move = (x, y) => {
+        if(!dragging) return;
+        el.style.left = (originX + x - startX) + 'px';
+        el.style.top = (originY + y - startY) + 'px';
+        el.style.transform = 'none';
+      };
+      el.addEventListener('pointerdown', e => {
+        dragging = true;
+        el.setPointerCapture(e.pointerId);
+        startX = e.clientX; startY = e.clientY;
+        const rect = el.getBoundingClientRect();
+        originX = rect.left; originY = rect.top;
+        el.style.left = rect.left + 'px'; el.style.top = rect.top + 'px';
+      });
+      el.addEventListener('pointermove', e => move(e.clientX, e.clientY));
+      el.addEventListener('pointerup', e => { dragging = false; el.releasePointerCapture(e.pointerId); });
+      el.addEventListener('pointercancel', e => { dragging = false; try{ el.releasePointerCapture(e.pointerId); }catch{} });
+    }
+
+    function initPrelaunch(){
+      const field = $('floatingField');
+      const items = [
+        ['star','✦'],['star','✧'],['heart','♡'],['heart','♥'],['star','★'],['star','✦'],['heart','♡'],['star','✧']
+      ];
+      items.forEach(([k,l]) => field.appendChild(makeFloatie(k,l)));
+      const note1 = makeFloatie('note','drag me ✂');
+      const note2 = makeFloatie('note','make a wish ♡');
+      const tape = makeFloatie('tape','');
+      field.append(note1,note2,tape);
+      [note1,note2,tape].forEach(addDraggable);
+      $('wishBurstBtn').onclick = () => { wishCount += 5; $('wishCount').textContent = wishCount; confetti(40); };
+    }
+
+    refresh();
+    initPrelaunch();
+    updateGate();
+    setInterval(() => { renderCountdown(); updateGate(); }, 1000);
+  </script>
+</body>
+</html>
